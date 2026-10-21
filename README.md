@@ -47,10 +47,8 @@ An OLS marketing mix model on 152 weeks of data (Jun 2019 – Apr 2022) covering
 |---|---|---|
 | Constant variance | Breusch–Pagan | p = 0.057 → met (borderline) |
 | Normal residuals | Jarque–Bera | p = 0.323 → met |
-| Independent weeks | Ljung–Box / ACF | lag-1 autocorrelation 0.55 → **not met**,
- handled with HAC standard errors |
-
-Out of sample, the chosen model has a MAPE of **14.8% vs 21.4%** for a historical-average baseline. M1 (raw media) forecasts better (10.9%) but has a negative Influencer coefficient and ignores carry-over, so M3 is kept for attribution, the purpose of an MMM.
+| Independent weeks | Ljung–Box / ACF | lag-1 autocorrelation 0.55 → **not met**
+ handled with HAC standard errors |Out of sample, the chosen model has a MAPE of **14.8% vs 21.4%** for a historical-average baseline. M1 (raw media) forecasts better (10.9%) but has a negative Influencer coefficient and ignores carry-over, so M3 is kept for attribution, the purpose of an MMM.
 
 ![Residual diagnostics](18_residual_diagnostics.png)
 
