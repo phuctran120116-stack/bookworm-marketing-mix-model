@@ -48,3 +48,43 @@ An OLS marketing mix model on 152 weeks of data (Jun 2019 – Apr 2022) covering
 | Constant variance | Breusch–Pagan | p = 0.057 → met (borderline) |
 | Normal residuals | Jarque–Bera | p = 0.323 → met |
 | Independent weeks | Ljung–Box / ACF | lag-1 autocorrelation 0.55 → **not met**,
+ handled with HAC standard errors |
+
+Out of sample, the chosen model has a MAPE of **14.8% vs 21.4%** for a historical-average baseline. M1 (raw media) forecasts better (10.9%) but has a negative Influencer coefficient and ignores carry-over, so M3 is kept for attribution, the purpose of an MMM.
+
+![Residual diagnostics](18_residual_diagnostics.png)
+
+## Limitations
+
+- Linear model: the +38k scenario is an **upper bound** (a version with diminishing returns gives +30k)
+- Only 152 weeks; long-term brand effects of TV are hard to measure
+- Total media ROI < 1 suggests spend may be recorded in a currency other than USD → read ROI as **relative ranking** between channels
+- Influencers (p = 0.20) are not significant; Brand Search and Display are borderline (p ≈ 0.07)
+
+<details>
+<summary><b>▶ More charts (EDA and feature engineering)</b></summary>
+
+![Trend](01_trend.png)
+![Seasonality](02_seasonality.png)
+![Correlation with sign-ups](03_correlation.png)
+![Lagged correlation](04_lag_correlation.png)
+![Confounding: Meta and school holidays](05_confounding_meta_holiday.png)
+![School holidays](06_school_holidays.png)
+![Promotions](07_promotions.png)
+![Spend share](08_spend_share.png)
+![Media inter-correlation](09_media_intercorrelation.png)
+![Raw vs SMA vs adstock](10_raw_sma_adstock.png)
+![Transform correlation](11_transform_correlation.png)
+![Actual vs predicted, M1 vs M2](12_actual_vs_pred_m1_m2.png)
+![Final model fit and residuals](14_final_fit_residuals.png)
+
+</details>
+
+## Data & how to run
+
+Data not included (course material from the Tomorrow Marketers AI & ML programme). The notebook `bookworm_marketing_mix_model.ipynb` shows all outputs and charts.
+
+Tools: Python (pandas, NumPy, statsmodels, scikit-learn, matplotlib) · Google Colab
+
+---
+*Tran Bao Phuc · phuctran120116@gmail.com*
